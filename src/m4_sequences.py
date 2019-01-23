@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Robert Kreft.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -135,13 +135,22 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+    list=[]
+    k=0
+    while True:
+        if k+1==len(sequence):
+            break
+        if sequence[k]==sequence[k+1]:
+            list=list+[k]
+        k=k+1
+    return list
 
 
 def run_test_practice_problem4b():
@@ -198,14 +207,18 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
-
+    largestnumber=sequence[0]
+    for k in range(0,len(sequence),2):
+        if sequence[k]>largestnumber:
+            largestnumber=sequence[k]
+    return largestnumber
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -296,7 +309,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -307,7 +320,15 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    for k in range(len(points)):
+        lst=list(points)
+        if is_prime(lst[k].x)==True and is_prime(lst[k].y)==True:
+            x=lst[k].y
+            y=lst[k].x
+            lst[k]=rg.Point(x,y)
+            points=tuple(lst)
+            return points[k]
+    return "Not found"
 
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
@@ -392,14 +413,22 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ###########################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    count=0
+    k=0
+    while True:
+        if k+1==len(sequence):
+            break
+        if is_prime(sequence[k])==True and is_prime(sequence[k+1])==True and sequence[k]!=sequence[k+1]:
+            count=count+sequence[k]
+        k=k+1
+    return count
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
