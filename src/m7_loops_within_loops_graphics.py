@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Robert Kreft.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -102,6 +102,20 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
+    x = point.x
+    y = point.y
+    startcircle=rg.Circle(rg.Point(x,y),radius)
+    startcircle.fill_color=color
+    startcircle.attach_to(window)
+    window.render()
+    # for j in range(n):
+    #     for k in range(j+1):
+    #         newx =
+    #         newy =
+    #         cicrle.attach_to(window)
+    #         window.render()
+    #     x = x
+    #     y = y
 
 
 def run_test_many_hourglasses():

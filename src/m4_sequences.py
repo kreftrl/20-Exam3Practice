@@ -321,12 +321,12 @@ def practice_problem4c(points):
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
     for k in range(len(points)):
-        lst=list(points)
-        if is_prime(lst[k].x)==True and is_prime(lst[k].y)==True:
-            x=lst[k].y
-            y=lst[k].x
-            lst[k]=rg.Point(x,y)
-            points=tuple(lst)
+        if is_prime(points[k].x)==True and is_prime(points[k].y)==True:
+            point=points[k]
+            newx=point.y
+            newy=point.x
+            point.x=newx
+            point.y=newy
             return points[k]
     return "Not found"
 
